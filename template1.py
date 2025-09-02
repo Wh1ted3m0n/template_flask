@@ -1,7 +1,7 @@
 from flask import Flask
+import templetesART
 
-
-
+# notate 1 воно динамічне можна не презапускати дотаток кожний раз
 # main функція для запуску flask
 app = Flask(__name__)
 #декоратор який відстежує текущу сторінку
@@ -35,5 +35,33 @@ def home_print():
 </html>
 
     '''
+@app.route('/about')
+def about():
+    return '''<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <title>Dark Theme Page</title>
+  <style>
+    body {
+      background-color: #000;  /* чорний фон */
+      color: #fff;             /* білий текст */
+      font-family: system-ui, sans-serif;
+      margin: 2rem;
+    }
+    a {
+      color: #4da6ff;          /* сині посилання */
+    }
+  </style>
+</head>
+<body>
+  <h1>ITS WORKING</h1>
+  
+</body>
+</html>
+'''+templetesART.art1
+@app.route('/page1')
+def page1():
+    return 'its working'
 if __name__ == "__main__":
     app.run(debug=True)
